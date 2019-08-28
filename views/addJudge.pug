@@ -1,0 +1,49 @@
+extends layout
+
+block content
+
+    form.form-signin(method='POST', action='/users/addJudge')
+        #form-group
+            h1.h2.mb-5.font-weight-normal Dane S&eogon;dziego
+            input.form-control(type='text', name='login123', placeholder='Login', required='', autofocus='')
+        #form-group
+
+         input.form-control(type='password', name='password', placeholder='Hasło', required='')
+        #form-group
+
+            input.form-control(type='password', name='password2', placeholder='Powrórz Hasło', required='')
+        #form-group
+
+            input.form-control(type='text', name='firstname', placeholder='Imie', required='')
+        #form-group
+
+            input.form-control(type='text', name='lastname', placeholder='Nazwisko', required='')
+
+            .row
+                .col-md-8.mb-3
+                    label(for='role') Rola
+                    br
+                    select#role.custom-select.d-block.w-100(name='role', required='')
+                        option(value='') Choose...
+                        option Arbiter
+                        option D2
+                        option E3
+                        option E4
+                    .invalid-feedback
+
+            .row
+                .col-md-8.mb-3
+                    label(for='apparatus') Przyrz&aogon;d
+                    br
+                    select#apparatus.custom-select.d-block.w-100(name='apparatus', required='')
+                        option(value='') Choose...
+                        option FX
+                        option PH
+                        option SR
+                        option VT
+                        option PB
+                        option HB
+                    .invalid-feedback
+
+        button.btn.btn-lg.btn-primary.btn-block(type='submit', formmethod='post') Dodaj
+

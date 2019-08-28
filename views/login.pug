@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    form.form-signin(method='POST', action='/users/login')
+        #form-group
+            h1.h2.mb-5.font-weight-normal   Logowanie
+            input.form-control(type='text', name='username', placeholder='Login', required='', autofocus='')
+        #form-group
+
+            input.form-control(type='password', name='password', placeholder='Hasło', required='')
+
+
+        button.btn.btn-lg.btn-primary.btn-block(type='submit', value='Submit') Zaloguj
+

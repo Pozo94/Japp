@@ -1,0 +1,51 @@
+extends layout
+
+block content
+    form.form-signin(method='POST', action='/competitors/addCompetitor')
+        #form-group
+            h1.h3.mb-3.font-weight-normal Dodaj Zawodnika
+            input.form-control(type='text', name='firstname1', placeholder='Imie', required='', autofocus='')
+        #form-group
+
+            input.form-control(type='text', name='lastname1', placeholder='Nazwisko', required='')
+
+        #form-group
+
+            input.form-control(type='text', name='club1', placeholder='Klub', required='')
+        #form-group
+
+            input.form-control(type='number', name='year1', placeholder='Rocznik', required='')
+
+            .row
+                .col-md-5.mb-3
+                    label(for='clas1') Klasa
+                    br
+                    select.custom-select.d-block.w-100(id='clas1',name='clas1', required='')
+                        option(value='') Choose...
+                        option Młodzieżowa
+                        option III
+                        option II
+                        option I
+                        option Młodzieżowiec
+                        option Mistrzowska
+                    .invalid-feedback
+            .row
+                .col-md-5.mb-3
+                    label(for='subdivision1') Zastęp
+                    br
+                    select.custom-select.d-block.w-100(id='subdivision1',name='subdivision1', required='')
+                        option(value='') Choose...
+                        option I
+                        option II
+                        option III
+                        option IV
+                        option V
+                        option VI
+                        option VII
+                        option VIII
+                    .invalid-feedback
+
+
+
+        button.btn.btn-lg.btn-primary.btn-block(type='submit', formmethod='post') Dodaj
+

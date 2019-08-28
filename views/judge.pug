@@ -1,0 +1,21 @@
+extends layout
+block content
+
+    form.form-signin(method='POST')
+        #form-group
+            h1.h2.mb-5.font-weight-normal   Ocenianie
+
+
+
+
+        if user.role === 'Arbiter'
+            input.form-control(type='number', step='0.1', name='D', placeholder='Ocena D', required='')
+            input.form-control(type='number', step='0.1', name='E1', placeholder='Ocena E1', required='')
+            input.form-control(type='number', step='0.1', name='E2', placeholder='Ocena E2', required='')
+            input.form-control(type='number', step='0.1', name='E3', placeholder='Ocena E3', required='')
+            input.form-control(type='number', step='0.1', name='E4', placeholder='Ocena E4', required='')
+            button.btn.btn-lg.btn-success.btn-block(type='submit', formmethod='post') Zapisz
+
+        else
+            input.form-control(type='number', step='0.1', name='Ocena', placeholder='Ocena E', required='')
+            button.btn.btn-lg.btn-primary.btn-block(type='button') Wyślij

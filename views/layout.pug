@@ -1,0 +1,55 @@
+doctype html
+html
+  head
+    title= JudgingApp
+    link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.css')
+    link(rel='stylesheet', href='/css/style.css')
+    script(defer, src="http://localhost:3000/socket.io/socket.io.js")
+    script(defer, src="/js/socket.io.js")
+    script(src='/bower_components/jquery/dist/jquery.js')
+    script(src='/bower_components/bootstrap/dist/js/bootstrap.js')
+    script(src='/js/main.js')
+  body
+
+    nav.navbar.navbar-inverse.navbar-fixed-top
+      a.navbar-brand(href='https://www.pzg.pl') PZG
+      .container
+
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target="#navbar")
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+
+        #navbar.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li
+            li
+              a(href="/") Home
+
+            li
+              a(href="/results") Results
+            if user
+              li
+                a(href="/judging/") Judge
+              if user.role === 'Admin'
+                li
+                  a(href="/competitors/addCompetitor") Add Competitor
+                li
+                  a(href="/users/addJudge") Add Judge
+          ul.nav.navbar-nav.navbar-right
+            if !user
+              li
+                a(href="/users/login") Login
+            else
+              li
+                a(href="/users/logout") Logout
+    .container
+      != messages('message', locals)
+      if errors
+        each error, i in errors
+          div(class="alert alert-danger") #{error.msg}
+
+      block content
+
